@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <link rel="shortcut icon" href="Images/Icon.png" />
+
+
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="BrainFuck.js"></script>
+    <script type="text/javascript" src="Resize.js"></script>
+
+    <title>Visualize BrainFuck</title>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <div>
+
+        <div>
+            <button type="button" class="Tutorials" onclick="Tutorials()" title="Tutorials"></button>
+
+            <button type="button" class="Git" title="GitHub" onclick="window.location.href='https://github.com/botsk/BrainFuck-Interpreter'"> </button>
+            <label id="Title" class="Title"></label>
+        </div>
+
+        <div>
+
+            <button id="LArrow" type="button" class="LArrow" onclick="LArrow()"></button>
+            <canvas id="Canvas" width="1250" height="150" class="Canvas"></canvas>
+            <button id="RArrow" type="button" class="RArrow" onclick="RArrow()"></button>
+
+        </div>
+
+        <div class="Group2">
+
+            <textarea placeholder="BrainFuck Here ..." spellcheck="false" id="Editor" class="Editor" rows="18"></textarea>
+            <textarea id="Console" class="Console" spellcheck="false" onkeypress="GetInput(event)" rows="18"></textarea>
+            <label id="ConsoleLabel" class="ConsoleLabel">Console</label>
+            <label id="EditorLabel" class="EditorLabel">Editor</label>
+
+            <div>
+                <div id="InputBackground">
+                  <input type="text" id="DeciInput" class="DeciInput Input" onkeypress="GetDeciInput(event)" placeholder="DECI">
+                  <input type="text" id="HexaInput" class="HexaInput Input" onkeypress="GetHexaInput(event)" placeholder="HEXA">
+                  <input type="text" id="BinaryInput" class="BinaryInput Input" onkeypress="GetBinaryInput(event)" placeholder="BINARY">
+                  <input type="text" id="CharInput" class="CharInput Input" onkeypress="GetCharInput(event)" placeholder="CHAR">
+                </div>
+
+                <label id ="StatusBar" class="StatusBar"></label>
+                <div><button id="Reset" type="button" class="Button Reset" onclick="Reset()" title="Reset"></button></div>
+                <div><button id="Run" type="button" class="Button Run" onclick="Run()" title="Play code"></button></div>
+                <div><button id="Steps" type="button" class="Button Steps" onclick="Steps()" title="Execute in steps"></button></div>
+                <div><button id="Output" type="button" class="Button Output" onclick="Output()" title="Generate Output"></button></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

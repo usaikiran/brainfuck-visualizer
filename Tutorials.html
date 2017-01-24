@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <link rel="shortcut icon" href="Images/Icon.png" />
+
+
+        <link rel="stylesheet" href="Tutorials.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="Tutorials.js"></script>
+        <script type="text/javascript" src="BrainFuck.js"></script>
+
+        <title>Visualize BrainFuck</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+
+    <body>
+
+        <div>
+
+            <button type="button" class="Interpreter" onclick="window.location.href='index.html'" title="Interpreter"></button>
+            <label id="Title" class="Title"></label>
+
+        </div>
+
+        <div>
+            <h1 class="Header">Quick reference</h1>
+        </div>
+        <div>
+            <table class="Table">
+            <tr><th>
+            <p class="Info" id="Info">
+                <br>>&nbsp;&nbsp;&nbsp;&nbsp;increment the data pointer (to point to the next cell to the right).
+                <br><&nbsp;&nbsp;&nbsp;&nbsp;decrement the data pointer (to point to the next cell to the left).
+                <br>+&nbsp;&nbsp;&nbsp;&nbsp;increment (increase by one) the byte at the data pointer.
+                <br>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decrement (decrease by one) the byte at the data pointer.
+                <br>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output the byte at the data pointer.
+                <br>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accept one byte of input, storing its value in the byte at the data pointer.
+                <br>[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the byte at the data pointer is zero, then instead of moving the instruction
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pointer forward to the next command, jump it forward to the command after the matching ] command.
+                <br>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the byte at the data pointer is nonzero, then instead of moving the instruction
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pointer forward to the next command, jump it back to the command after the matching [ command.\
+                <br>
+                <br><a href=https://en.wikipedia.org/wiki/Brainfuck>https://en.wikipedia.org/wiki/Brainfuck</a>
+            </p>
+            </th></tr>
+            </table>
+        </div>
+
+    </body>
+
+</html>

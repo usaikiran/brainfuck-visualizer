@@ -1,0 +1,336 @@
+.Tutorials
+{
+    position: fixed;
+    top: 0.5%;
+    left: 0.4%;
+
+    height: 7%;
+    width: 3%;
+
+    font-family: "OCR A Extended";
+    border : 0px #000000 solid;
+
+    background-color: #000000 ;
+    background-size: 100% 100% ;
+    background-image: url('Images/Tutorials.png');
+}
+
+.Tutorials:hover
+{
+    background-color: #000000 ;
+}
+
+.Git
+{
+    position: fixed;
+    top: 0.5%;
+    left: 3.5%;
+
+    height: 6%;
+    width: 2.8%;
+
+    font-family: "OCR A Extended";
+    border : 0px #000000 solid;
+
+    background-color: #1a1a1a ;
+    background-size: 100% 100% ;
+    background-image: url('Images/GitHub.png');
+}
+
+.Git:hover
+{
+    background-color: #000000;
+}
+
+.Title
+{
+    position: fixed;
+    top: 1%;
+    right: 0.5%;
+
+    width: 28%;
+    height: 6%;
+    overflow: hidden;
+
+    background-size: 100% 100% ;
+
+    background-color: #ffffff;
+    background-image: url('Images/Whatthebrainfuck.png');
+}
+
+.LArrow
+{
+    position: absolute;
+    margin-top: 8.5%;
+    left: 6.8%;
+
+    border-width: 0px;
+
+    width: 35px;
+    height: 35px;
+    background-size: 100% 100%;
+
+    background-image: url('Images/LArrow.png');
+    background-color: #ffffff ;
+
+    outline: none ;
+}
+
+.LArrow:hover
+{
+  background-color: #404040;
+}
+
+.RArrow
+{
+    position: absolute;
+    left: 91%;
+    margin-top: 8.5%;
+
+    border-width: 0px;
+    background-color: #ffffff;
+
+    width: 35px;
+    height: 35px;
+
+    background-image: url('Images/RArrow.png');
+    background-size: 100% 100%;
+    background-color: #ffffff ;
+
+    outline: none ;
+}
+
+.RArrow:hover
+{
+  background-color: #404040;
+}
+
+.Canvas
+{
+    position: relative;
+    margin-top: 8%;
+    left: 10%;
+
+    width: 80%;
+    height: 100%;
+}
+
+.Group2
+{
+    position: relative;
+    left: 9%;
+}
+
+.Editor
+{
+    position: relative;
+    left: 0%;
+
+    width: 50%;
+    resize: none;
+
+    color: #262626;
+    background-color: #ffffff;
+    font-family: Consolas;
+
+    font-size: 0.9vw;
+
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.Editor:focus
+{
+    border: 1px solid #808080;
+}
+
+.Editor:hover
+{
+    border: 1px solid #808080;
+}
+
+.EditorLabel
+{
+    position: absolute;
+    top: 2%;
+    left: 46.5%;
+
+    height: 4%;
+
+    font-size: 0.8vw;
+    font-family: monospace;;
+    color: #4dc3ff;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.Console
+{
+    position: relative;
+    left: 1%;
+
+    width: 31%;
+    resize: none;
+
+    color: #00cc66;
+    background-color: #1a1a1a;
+    font-family: monospace;
+
+    font-size: 0.8vw;
+
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #262626;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.Console:focus
+{
+    border: 1px solid #000000;
+}
+
+.Console:hover
+{
+    border: 1px solid #000000;
+}
+
+.ConsoleLabel
+{
+    position: absolute;
+    left: 78%;
+    top:2%;
+
+    height: 4%;
+
+    font-size: 0.8vw;
+    font-family: monospace;
+    color: #00cc66;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.DeciInput
+{
+    position: absolute;
+    left: 52%;
+
+    width: 6%;
+}
+
+.HexaInput
+{
+    position: absolute;
+    left: 59%;
+
+    width: 6%;
+}
+
+.BinaryInput
+{
+    position: absolute;
+    left: 66%;
+
+    width: 9%;
+}
+
+.CharInput
+{
+    position: absolute;
+    left: 76%;
+
+    width: 5.2%;
+}
+
+.Input
+{
+    top: 84%;
+    height: 6%;
+
+    display: none;
+
+    padding: 3px 8px;
+
+    text-align: center;
+    font-size: 1.5vh;
+    font-family: monospace;
+
+    color: #00cc66;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #b3ffff;
+
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.StatusBar
+{
+    position: absolute;
+    left: 51.2%;
+    top: 94%;
+
+    width: 31%;
+    height: 6%;
+    padding: 0.5vh 0.4vw;
+
+    font-size: 1.4vh;
+    font-family: monospace;;
+    color: #00cc66;
+
+    background-color: #333333;
+}
+
+.Reset
+{
+    position: absolute;
+    top: 55.5%;
+
+    background-image: url('Images/Reset.png');
+}
+
+.Run
+{
+    position: absolute;
+    top: 66.5%;
+
+    background-image: url('Images/Run.png');
+}
+
+.Steps
+{
+    position: absolute;
+    top: 77.5%;
+
+    background-image: url('Images/Steps.png');
+}
+
+.Output
+{
+    position: absolute;
+    top: 88.5%;
+
+    background-image: url('Images/Output.png');
+}
+
+.Button
+{
+    left: 82.5%;
+    width: 2.5%;
+    height: 10%;
+
+    background-size: 100% 100%;
+    background-color: #ffffff ;
+    border: 1px solid #00994d;
+
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.Button:hover {
+
+    background-color: #00331a;
+    outline: none;
+}

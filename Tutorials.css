@@ -1,0 +1,66 @@
+
+.Title
+{
+  position: fixed;
+  top: 1%;
+  right: 0.5%;
+
+  width: 28%;
+  height: 6%;
+  overflow: hidden;
+
+  background-size: 100% 100% ;
+
+  background-color: #ffffff;
+  background-image: url('Images/Whatthebrainfuck.png');
+}
+
+
+.Interpreter
+{
+  position: fixed;
+  top: 0.5%;
+  left: 0.4%;
+
+  width: 2.5%;
+  height: 6%;
+
+  border: 0px ;
+  background-color: #000000 ;
+  background-size: 100% 100%;
+  background-image: url('Images/Interpreter.png');
+}
+
+.Header
+{
+    position: relative;
+    margin-top: 5%;
+
+    color: #262626;
+    text-align: center;
+}
+
+.Table
+{
+    position: relative;
+    left: 20%;
+    margin-top: 2%;
+
+    width: 65%;
+
+    background-color: #d9d9d9;
+}
+
+.Info
+{
+    position: relative;
+    left: 3%;
+
+    font-size: 17px;
+}
+
+.Detail
+{
+    position: relative;
+    left: 2%;
+}
