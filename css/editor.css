@@ -1,5 +1,49 @@
 
-.bracket
+.open_bracket
 {
-    color: blue;
+    color: #000;
+}
+
+.close_bracket
+{
+    color: #000;
+}
+
+.input
+{
+    color:#ff220c;
+}
+
+.output
+{
+    color: green;
+}
+
+.right
+{
+    color: #46237a;
+}
+
+.left
+{
+    color: indigo;
+}
+
+.plus
+{
+    color: #0197f6;
+}
+
+.minus
+{
+    color: #ff3366;
+}
+
+.operator
+{
+    position: relative;
+
+    font-family: "arvin regular";
+    font-weight: bold;
+    font-size: 120%;
 }

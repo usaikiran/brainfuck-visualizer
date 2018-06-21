@@ -249,9 +249,30 @@ function set( pointer, fac )
 
 function display( index )
 {
+    var code = symbols[cells[index]];
+
+    console.log( code+" "+isNaN( code ) );
     out = $( "#console" ).html();
-    $( "#console" ).html( out+String.fromCharCode(cells[index]) );
-    //console.log(out+String.fromCharCode(cells[index]) );
+
+    if( code==null )
+    {
+        code = null;//ext_chars[cells[index]];
+        if( cells[index]>127 && cells[index]<256 )
+            code = 9617+cells[index]-127;
+
+        if( code == null )
+            $( "#console" ).html( out+String.fromCharCode(cells[index]) );
+        else
+        {
+            console.log( "val : "+cells[index]+" code : "+code);
+            $( "#console" ).html( out+String.fromCharCode( code ) );
+        }
+    }
+    else
+    {
+        $("#console").html(out+"<span class='special-symbol select-none'>"+symbols[cells[index]]+"</span>");
+    }
+
 }
 
 function toggleInput( )
@@ -292,7 +313,6 @@ function fetchInput()
             get_output( $("#editor").val() );
         }
     }
-
 }
 
 function shift( offset )

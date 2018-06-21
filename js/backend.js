@@ -189,7 +189,8 @@ function increment()
         {
             row = 0;
             col = -1;
-            setTimeout( function(){ $("#play").trigger( "click" ) }, 100 );
+            //console.log( "finished @ "+row+" "+col );
+            $("#play").trigger( "click" );
         }
         step = false;
         return false;

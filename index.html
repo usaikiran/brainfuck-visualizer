@@ -23,8 +23,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="js/symbols.js"></script>
+    <script src="js/ext_char.js"></script>
     <script src="js/home.js"></script>
     <script src="js/backend.js"></script>
+    <script src="js/samples.js"></script>
+    <script src="js/code.js"></script>
   
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Capriola" rel="stylesheet">
@@ -55,7 +59,7 @@
     <br/>
 
     <div class="editor-div col-sm-7 centre pad-0">
-        <textarea id="editor_line" class="editor-line" rows="15" unselectable="on" readonly ng-bind="editor_line_bar"></textarea>
+        <textarea id="editor_line" class="editor-line select-none" rows="15" unselectable="on" readonly ng-bind="editor_line_bar"></textarea>
         <textarea id="editor" class="editor" rows="15" ng-model="editor_box" name="editor_box"></textarea>
         <div class="control-icon-div">
             <button id="play" class="btn control-icon" data-toggle="tooltip" title="Play"><i class="material-icons" id="play-stamp">change_history</i></button>
@@ -104,6 +108,19 @@
         </form>
     </div>
     <br/>
+
+    <div id="samples-div" class="samples-div col-sm-7 pad-0 centre">
+
+        <!--div class="panel panel-default sample">
+            <div class="panel-heading sample-title"><a href="#" class="link">Hello World</a></div>
+            <div class="panel-body sample-desc"><a href="#" class="link">Display Hello World! on screen</a> </div>
+            <div class="panel-footer sample-footer">
+                <button class="btn action-btn"><i class="material-icons">cloud_download</i></button>
+                <button class="btn action-btn"><i class="material-icons">code</i></button>
+            </div>
+        </div-->
+
+    </div>
 
     <footer class="home-footer col-sm-12">
         <br/>
