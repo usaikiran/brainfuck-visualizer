@@ -1,0 +1,117 @@
+<html>
+  
+  <head>
+  
+    <title>BrainFuck Interpreter</title>
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/input_slider.css">
+    
+    <meta http-equiv="Refresh" content="60000">  
+    <meta name="theme-color" content="#111" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="js/home.js"></script>
+    <script src="js/backend.js"></script>
+  
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Capriola" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Copse" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet"> 
+
+  </head>
+  
+  <body ng-app="brainApp" ng-controller="brainCtrl">
+
+    <div class="header-div">
+        <a href="https://github.com/botsk/BrainFuck-Interpreter" class="btn rounded-icon" ><img class="header-icon" src="img/github.png"/></a>
+        <a href="https://en.wikipedia.org/wiki/Brainfuck" class="btn rounded-icon" ><img class="header-icon" src="img/info.png"/></a>
+    </div>
+
+    <div class="cell-div col-sm-7 centre pad-0">
+        <button id="shift-left" class="cell arrow icon-left"><i class="material-icons" style="font-size: inherit;">&#xe5c8;</i></button>
+        <div class="cell-pointer-div centre">
+            <div id="cell-sub-div" class="cell-sub-div centre"></div>
+            <div id="pointer-div" class="pointer-div centre pad-0">
+                <div id="pointer" class="pointer"><i class="material-icons" style="font-size: inherit !important;">&#xe8e4;</i></div>
+            </div>
+        </div>
+        <button id="shift-right" class="cell arrow icon-right"><i class="material-icons" style="font-size: inherit;">&#xe5c8;</i></button>
+    </div>
+
+    <br/>
+
+    <div class="editor-div col-sm-7 centre pad-0">
+        <textarea id="editor_line" class="editor-line" rows="15" unselectable="on" readonly ng-bind="editor_line_bar"></textarea>
+        <textarea id="editor" class="editor" rows="15" ng-model="editor_box" name="editor_box"></textarea>
+        <div class="control-icon-div">
+            <button id="play" class="btn control-icon" data-toggle="tooltip" title="Play"><i class="material-icons" id="play-stamp">change_history</i></button>
+            <button id="steps" class="btn control-icon" data-toggle="tooltip" title="Execute in Steps"><i class="material-icons">trending_flat</i></button>
+            <button id="output" class="btn control-icon" data-toggle="tooltip" title="Generate Output"><i class="material-icons">last_page</i></button>
+            <button id="reset" class="btn control-icon" data-toggle="tooltip" title="Reset"><i class="material-icons">repeat</i></button>
+            <div id="delay-div" class="slider-div control-icon delay-slider"  data-toggle="tooltip" title="Delay">
+                <input id="delay" type="range" min="0" max="100" value="50" class="input-slider" id="myRange">
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="console-div col-sm-7 centre pad-0">
+        
+        <div class="console-side-bar">
+            <button id="toggle-input" class="btn console-icon"><i class="material-icons" style="font-size: 19px;">input</i></button>
+            <button class="btn console-icon"><i class="material-icons" style="font-size: 19px;">file_copy</i></button>
+        </div>
+        <p id="console" class="console">
+        </p>
+        
+        <div id="error-div" class="error-div">
+            <pre id="error-msg" class="error-msg"></pre>
+        </div>
+
+        <form id="input-div" class="input-div">
+            <div class="input-group input-sub-div">
+                <label class="number-sys-icon left">10</label>
+                <input id="deci" type="text" class="value-feild right" placeholder="Deci">
+            </div>
+            <div class="input-group input-sub-div">
+                <label class="number-sys-icon left">16</label>
+                <input id="hexa" type="text" class="value-feild right" placeholder="Hexa">
+            </div>
+            <div class="input-group input-sub-div binary-width">
+                <label class="number-sys-icon left">2</label>
+                <input id="binary" type="text" class="value-feild" placeholder="Binary">
+            </div>
+            <div class="input-group input-sub-div">
+                <label class="number-sys-icon left">8</label>
+                <input id="octa" type="text" class="value-feild octa-width" placeholder="Octa">
+            </div>
+            <button class="btn done"><i class="material-icons">done</i></button>
+        </form>
+    </div>
+    <br/>
+
+    <footer class="home-footer col-sm-12">
+        <br/>
+        <label class="header">BrainFuck.xyz</label>
+        <label class="email"> Contact us at hello@brainfuck.xyz</label>
+        <br/>
+    </footer>
+
+  </body>
+  
+  </html>

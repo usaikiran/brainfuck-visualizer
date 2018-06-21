@@ -1,0 +1,56 @@
+.input-slidecontainer 
+{
+    width: 100%;
+}
+
+.slider-div
+{
+    width: 160px !important;
+    padding: 15px !important;
+
+    background-color: #e8e8e8;
+    border-radius: 4px;
+}
+
+.input-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    border: 0px;
+    border-radius: 10px;
+    outline: none;
+    opacity: 0.9;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.input-slider:hover {
+    opacity: 1;
+}
+
+.input-slider::-webkit-slider-thumb {
+    
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 16px;
+    height: 16px;
+
+    border: 0px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer;
+}
+
+.input-slider::-moz-range-thumb {
+   
+    appearance: none;
+    width: 16px;
+    height: 16px;
+
+    border: 0px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer;
+}

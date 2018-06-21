@@ -1,0 +1,120 @@
+
+@font-face
+{
+    font-family: "watchword-regular";
+    src: url(../fonts/Watchword_regular.otf) format("opentype");
+}
+
+@font-face
+{
+    font-family: "watchword-hairline";
+    src: url(../fonts/Watchword_thin.otf) format("opentype");
+}
+
+@font-face
+{
+    font-family: "fresca-regular";
+    src: url(../fonts/Fresca_Regular.ttf) format("truetype");
+}
+
+@font-face
+{
+    font-family: "rampung";
+    src: url(../fonts/Rampung.ttf) format("truetype");
+}
+
+@font-face
+{
+    font-family: "sayang";
+    src: url(../fonts/Sayang.ttf) format("truetype");
+}
+
+@font-face
+{
+    font-family: "prinsesstarta";
+    src: url(../fonts/Prinsesstarta.ttf) format("truetype");
+}
+
+@font-face
+{
+    font-family: "MODERNE-SANS";
+    src: url(../fonts/MODERNE-SANS.ttf) format("truetype");
+}
+
+@font-face
+{
+  font-family: "fax-sans";
+  src: url( ../fonts/Fax_Sans.otf ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "NOVABOLD";
+  src: url( ../fonts/NOVABOLD.otf ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "Arvin Light";
+  src: url( ../fonts/Arvin_Light.ttf ) format( "truetype" );
+}
+
+@font-face
+{
+  font-family: "Arvin regular";
+  src: url( ../fonts/Arvin_Regular.ttf ) format( "truetype" );
+}
+
+@font-face
+{
+  font-family: "Mosk Semi-Bold";
+  src: url( "../fonts/Mosk Semi-Bold 600.ttf" ) format( "truetype" );
+}
+
+@font-face
+{
+  font-family: "Mosk Medium";
+  src: url( ../fonts/Mosk_Medium_500.ttf ) format( "truetype" );
+}
+
+@font-face
+{
+  font-family: "Canaro Light";
+  src: url( ../fonts/Canaro_Light.otf ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "Junction";
+  src: url( "../fonts/Junction-light.otf" ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "Junction Light";
+  src: url( "../fonts/Junction-light.otf" ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "Junction Bold";
+  src: url( "../fonts/Junction-bold.otf" ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "BPreplay";
+  src: url( "../fonts/BPreplay.otf" ) format( "opentype" );
+}
+
+@font-face
+{
+  font-family: "Asgalt";
+  src: url( "../fonts/Asgalt-Regular.ttf" ) format( "truetype" );
+}
+
+@font-face
+{
+  font-family: "expressway";
+  src: url( "../fonts/expressway.ttf" ) format( "truetype" );
+}
