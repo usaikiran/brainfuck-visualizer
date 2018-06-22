@@ -23,6 +23,7 @@ function setEditorLines(count)
 
 $(document).ready(function () 
 {
+    renderCells();
     initSamples();
 
     $('[data-toggle="tooltip"]').tooltip({
@@ -34,6 +35,10 @@ $(document).ready(function ()
 
     //console.log( "delay : "+Math.floor( ( (delay-min_delay)/(max_delay-min_delay) )*100 ) );
     //$("#delay").val( ( (delay-min_delay)/(max_delay-min_delay) ) );
+
+    $("button").click(function(){
+        $(this).tooltip('hide');
+    });
 
     $("#editor").bind('input propertychange', function() {
 
@@ -99,6 +104,7 @@ $(document).ready(function ()
     $("#toggle-input").click(function()
     {
         toggleInput();
+        console.log("toggling input");
     });
 
     $("#deci").on('input',function(){
@@ -138,6 +144,10 @@ $(document).ready(function ()
         console.log( "delay : "+delay );
     });
 
+    $("#empty-console").click(function(){
+        $("#console").html("");
+    });
+
     $("#copy-console").click(function(){
 
         var text = $("#console").html(), temp, raw_text="";
@@ -156,7 +166,6 @@ $(document).ready(function ()
         copyToClipboard(raw_text);
     });
 
-    renderCells();
     reset();
 });
 
@@ -313,16 +322,14 @@ function toggleInput( )
 function hide_input()
 {
     $("#input-div").css( "bottom", "-100px" );
-    setTimeout( function(){
-        $( "#input-div" ).css( "display", "none" );
-    }, 500 );
+    $( "#input-div" ).css( "display", "none" );
 
     input_div = false;
 }
 
 function show_input()
 {
-    $( "#input-div" ).css( "display", "block" );
+    $( "#input-div" ).css( "display", "inline-block" );
     $("#input-div").css( "bottom", "10px" );
 
     input_div = true;

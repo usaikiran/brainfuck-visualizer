@@ -78,10 +78,14 @@
 
     <div class="console-div col-sm-7 centre ">
         
-        <div class="console-side-bar">
-            <button id="toggle-input" data-toggle="tooltip" title="Input" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 19px;">launch</i></button>
-            <button id="copy-console" data-toggle="tooltip" title="Copy" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 19px;">file_copy</i></button>
+        <div class="console-top-bar">
+            <label class="terminal-icon"><i class="fa fa-terminal" style="font-size:inherit"></i></label>
+
+            <button id="toggle-input" data-toggle="tooltip" title="Input" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 19px; color: #A7A5A4;">launch</i></button>
+            <button id="copy-console" data-toggle="tooltip" title="Copy" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 18px; color: #276fbf;">file_copy</i></button>
+            <button id="empty-console" data-toggle="tooltip" title="Copy" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 21px; color: #f03a47;">delete</i></button>
         </div>
+        <div class="line-break" style="width: 100%;background-color: #313131;"></div>
         <p id="console" class="console" placeholder="test">
         </p>
         
@@ -89,25 +93,29 @@
             <pre id="error-msg" class="error-msg"></pre>
         </div>
 
-        <form id="input-div" class="input-div">
-            <div class="input-group input-sub-div">
-                <label class="number-sys-icon left">10</label>
-                <input id="deci" type="text" class="value-feild right" placeholder="Deci">
-            </div>
-            <div class="input-group input-sub-div">
-                <label class="number-sys-icon left">16</label>
-                <input id="hexa" type="text" class="value-feild right" placeholder="Hexa">
-            </div>
-            <div class="input-group input-sub-div binary-width">
-                <label class="number-sys-icon left">2</label>
-                <input id="binary" type="text" class="value-feild" placeholder="Binary">
-            </div>
-            <div class="input-group input-sub-div">
-                <label class="number-sys-icon left">8</label>
-                <input id="octa" type="text" class="value-feild octa-width" placeholder="Octa">
-            </div>
-            <button class="btn done"><i class="material-icons">done</i></button>
-        </form>
+        <div id="input-div" style="width: 100%;text-align: center;display: none;position: absolute;bottom: 10px;">
+
+            <form class="input-div">
+                <div class="input-group input-sub-div">
+                    <label class="number-sys-icon left">10</label>
+                    <input id="deci" type="text" class="value-feild right" placeholder="Deci">
+                </div>
+                <div class="input-group input-sub-div">
+                    <label class="number-sys-icon left">16</label>
+                    <input id="hexa" type="text" class="value-feild right" placeholder="Hexa">
+                </div>
+                <div class="input-group input-sub-div binary-width">
+                    <label class="number-sys-icon left">2</label>
+                    <input id="binary" type="text" class="value-feild" placeholder="Binary">
+                </div>
+                <div class="input-group input-sub-div">
+                    <label class="number-sys-icon left">8</label>
+                    <input id="octa" type="text" class="value-feild octa-width" placeholder="Octa">
+                </div>
+                <button class="btn done"><i class="material-icons">done</i></button>
+            </form>
+
+        </div>
     </div>
     <br/>
 

@@ -1,5 +1,6 @@
 
 var sampleList = [], index = 0;
+var base_url = "";
 
 function filtter_code(text)
 {
@@ -79,7 +80,7 @@ function readSamples(text) {
 
     for (var i = 0; i < sampleList.length; i++) 
     {
-        readText("file:///media/test/WorkSpace/Codes/PROJECT%20BRAINX/Ver_3.0/data/" + sampleList[i], displaySample);
+        readText( base_url+"data/" + sampleList[i], displaySample);
     }
 }
 
@@ -134,10 +135,10 @@ function copyCode( id )
 function editCode( id )
 {
     var name = id.split("-")[1]+".b";
-    readText("file:///media/test/WorkSpace/Codes/PROJECT%20BRAINX/Ver_3.0/data/" + name, loadEditor);
+    readText(base_url+"data/" + name, loadEditor);
 }
 
 function initSamples() 
 {
-    readText("file:///media/test/WorkSpace/Codes/PROJECT%20BRAINX/Ver_3.0/samples.dat", readSamples);
+    readText(base_url+"samples.dat", readSamples);
 }
