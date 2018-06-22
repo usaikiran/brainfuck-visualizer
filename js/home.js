@@ -342,7 +342,7 @@ function read( index )
 
 function fetchInput()
 {
-    var value = $("#deci").val();
+    var value = parseInt( $("#deci").val() );
 
     if( value != NaN && value>=0 && value<256 )
     {
