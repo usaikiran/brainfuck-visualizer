@@ -45,9 +45,8 @@ function readText(file, func) {
 
 function displaySample(text) 
 {
-    console.log( "entered : "+sampleList);
-
     var htmlText = $("#samples-div").html();
+    var raw_title = sampleList[index].split(".")[0];
     var title = sampleList[index].split(".")[0].replace(/_/g, " ");
     var desc = text.split("\n")[0];
 
@@ -59,15 +58,18 @@ function displaySample(text)
         <div class='panel-heading sample-title'><a href='#' class='link'>"+ title + "</a></div>\
         <div class='panel-body sample-desc'><a href='#' class='link'>"+ desc + "</a> </div>\
         <div class='line-break'></div>\
-        <p class='code'>"+code+"</p>\
-        <div class='panel-footer sample-footer'>\
-            <button class='btn action-btn'><i class='material-icons' style='transform: rotate(90deg)'>arrow_forward</i></button>\
-            <button class='btn action-btn'><i class='material-icons'>code</i></button>\
+        <p id='code-"+raw_title+"' class='code'>"+code+"</p>\
+        <div id='"+raw_title+"' class='panel-footer sample-footer'>\
+            <button id='download-"+raw_title+"' class='btn action-btn' data-toggle='tooltip' title='Download' ><i class='material-icons' style='transform: rotate(90deg)'>arrow_forward</i></button>\
+            <button id='edit-"+raw_title+"' class='btn action-btn' data-toggle='tooltip' title='Edit Code'><i class='material-icons'>code</i></button>\
+            <button id='copy-"+raw_title+"' class='btn action-btn' data-toggle='tooltip' title='Copy Code'><i class='material-icons'>filter_none</i></button>\
         </div>\
         </div>";
 
     $("#samples-div").html(htmlText);
-
+    $("#copy-"+raw_title).attr( "onclick", "copyCode('code-"+raw_title+"')" );
+    $("#edit-"+raw_title).attr( "onclick", "editCode('code-"+raw_title+"')" );
+    $("#download-"+raw_title).attr( "onclick", "downloadCode('code-"+raw_title+"')" );
 }
 
 function readSamples(text) {
@@ -77,11 +79,65 @@ function readSamples(text) {
 
     for (var i = 0; i < sampleList.length; i++) 
     {
-        console.log( "processing : "+sampleList[i] );
         readText("file:///media/test/WorkSpace/Codes/PROJECT%20BRAINX/Ver_3.0/data/" + sampleList[i], displaySample);
     }
 }
 
-$(document).ready(function () {
+function decode( code )
+{
+    var raw_code = code.split("</span>"), temp;
+    code = "";
+
+    console.log( "raw_code : "+raw_code );
+    for( var i=0; i<raw_code.length; i++ )
+    {
+        temp = raw_code[i].charAt( raw_code[i].length-1 );
+        
+        if( temp==";" )
+        {
+            if( raw_code[i].charAt( raw_code[i].length-3 ) == "g" )
+                temp = ">";
+            else
+                temp = "<";
+        }
+
+        code += temp;
+    }
+
+    console.log( "code : "+code );
+    return code;
+}
+
+function loadEditor( text )
+{
+    $( "#editor" ).val( text );
+    window.scrollTo(0,0);
+}
+
+function downloadCode( id )
+{
+    var name = id.split("-")[1]+".b";
+
+    $('html, body').animate({
+        scrollTop: $("#editor").offset().top
+      }, 800, function(){
+   
+      });
+}
+
+function copyCode( id )
+{
+    var code = $("#"+id).html();
+    copyToClipboard( decode(code) );
+}
+
+function editCode( id )
+{
+    var name = id.split("-")[1]+".b";
+    readText("file:///media/test/WorkSpace/Codes/PROJECT%20BRAINX/Ver_3.0/data/" + name, loadEditor);
+}
+
+function initSamples() 
+{
     readText("file:///media/test/WorkSpace/Codes/PROJECT%20BRAINX/Ver_3.0/samples.dat", readSamples);
-});
+}

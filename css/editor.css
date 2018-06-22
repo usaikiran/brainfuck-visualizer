@@ -11,22 +11,22 @@
 
 .input
 {
-    color:#ff220c;
+    color:#eac435;
 }
 
 .output
 {
-    color: green;
+    color: #2ec4b6;
 }
 
 .right
 {
-    color: #46237a;
+    color: #261a82;
 }
 
 .left
 {
-    color: indigo;
+    color: #261a82;
 }
 
 .plus
@@ -36,7 +36,7 @@
 
 .minus
 {
-    color: #ff3366;
+    color: #ff220c;
 }
 
 .operator

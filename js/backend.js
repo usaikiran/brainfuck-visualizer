@@ -8,7 +8,7 @@ var col=0;
 var text = "";
 var text_count = 0;
 
-var delay = 500, max_delay=1500, min_delay=10;
+var delay = 400, max_delay=1500, min_delay=10;
 var pointer_delay = 0.2, pointer_max_delay=0.5, pointer_min_delay=0.0;
 var brackets = {};
 var current_col = -1;
@@ -41,7 +41,7 @@ function reset()
     text_count = 0;
     
     hide_error();
-    $("#input-div").css( "bottom", "-100px" );
+    hide_input();
     $("#play").html( "<i class='material-icons' id='play-stamp'>change_history</i>" );
     $( "#console" ).html("");
 
@@ -207,7 +207,7 @@ function parse()
             return;
     }
 
-    $("#editor").selectRange( text_count-1, text_count );
+    //$("#editor").selectRange( text_count-1, text_count );
 
     if (text[row].charAt(col) == "[")    
     {

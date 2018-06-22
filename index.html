@@ -25,6 +25,7 @@
 
     <script src="js/symbols.js"></script>
     <script src="js/ext_char.js"></script>
+    <script src="js/copy.js"></script>
     <script src="js/home.js"></script>
     <script src="js/backend.js"></script>
     <script src="js/samples.js"></script>
@@ -45,7 +46,8 @@
         <a href="https://en.wikipedia.org/wiki/Brainfuck" class="btn rounded-icon" ><img class="header-icon" src="img/info.png"/></a>
     </div>
 
-    <div class="cell-div col-sm-7 centre pad-0">
+    <br/><br/>
+    <div class="cell-div col-sm-7 centre ">
         <button id="shift-left" class="cell arrow icon-left"><i class="material-icons" style="font-size: inherit;">&#xe5c8;</i></button>
         <div class="cell-pointer-div centre">
             <div id="cell-sub-div" class="cell-sub-div centre"></div>
@@ -58,29 +60,29 @@
 
     <br/>
 
-    <div class="editor-div col-sm-7 centre pad-0">
+    <div class="editor-div col-sm-7 centre ">
         <textarea id="editor_line" class="editor-line select-none" rows="15" unselectable="on" readonly ng-bind="editor_line_bar"></textarea>
         <textarea id="editor" class="editor" rows="15" ng-model="editor_box" name="editor_box"></textarea>
         <div class="control-icon-div">
             <button id="play" class="btn control-icon" data-toggle="tooltip" title="Play"><i class="material-icons" id="play-stamp">change_history</i></button>
             <button id="steps" class="btn control-icon" data-toggle="tooltip" title="Execute in Steps"><i class="material-icons">trending_flat</i></button>
-            <button id="output" class="btn control-icon" data-toggle="tooltip" title="Generate Output"><i class="material-icons">last_page</i></button>
+            <!--button id="output" class="btn control-icon" data-toggle="tooltip" title="Generate Output"><i class="material-icons">last_page</i></button-->
             <button id="reset" class="btn control-icon" data-toggle="tooltip" title="Reset"><i class="material-icons">repeat</i></button>
             <div id="delay-div" class="slider-div control-icon delay-slider"  data-toggle="tooltip" title="Delay">
-                <input id="delay" type="range" min="0" max="100" value="50" class="input-slider" id="myRange">
+                <input id="delay" type="range" min="0" max="100" value="26" class="input-slider">
             </div>
         </div>
     </div>
 
-    <br/>
+    <br/><br/>
 
-    <div class="console-div col-sm-7 centre pad-0">
+    <div class="console-div col-sm-7 centre ">
         
         <div class="console-side-bar">
-            <button id="toggle-input" class="btn console-icon"><i class="material-icons" style="font-size: 19px;">input</i></button>
-            <button class="btn console-icon"><i class="material-icons" style="font-size: 19px;">file_copy</i></button>
+            <button id="toggle-input" data-toggle="tooltip" title="Input" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 19px;">launch</i></button>
+            <button id="copy-console" data-toggle="tooltip" title="Copy" data-placement="bottom" class="btn console-icon"><i class="material-icons" style="font-size: 19px;">file_copy</i></button>
         </div>
-        <p id="console" class="console">
+        <p id="console" class="console" placeholder="test">
         </p>
         
         <div id="error-div" class="error-div">
@@ -109,7 +111,7 @@
     </div>
     <br/>
 
-    <div id="samples-div" class="samples-div col-sm-7 pad-0 centre">
+    <div id="samples-div" class="samples-div col-sm-7 centre">
 
         <!--div class="panel panel-default sample">
             <div class="panel-heading sample-title"><a href="#" class="link">Hello World</a></div>
@@ -125,7 +127,7 @@
     <footer class="home-footer col-sm-12">
         <br/>
         <label class="header">BrainFuck.xyz</label>
-        <label class="email"> Contact us at hello@brainfuck.xyz</label>
+        <label class="email"> Get in touch : hello@brainfuck.xyz</label>
         <br/>
     </footer>
 

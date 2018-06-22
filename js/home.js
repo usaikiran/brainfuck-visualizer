@@ -23,6 +23,8 @@ function setEditorLines(count)
 
 $(document).ready(function () 
 {
+    initSamples();
+
     $('[data-toggle="tooltip"]').tooltip({
         trigger : 'hover'
     })  
@@ -30,7 +32,8 @@ $(document).ready(function ()
     $("#editor").scrollTop(0);
     rowCount = parseInt( $("#editor").attr("rows") );
 
-    delay = min_delay + ($(this).val()/100.0)*(max_delay-min_delay);
+    //console.log( "delay : "+Math.floor( ( (delay-min_delay)/(max_delay-min_delay) )*100 ) );
+    //$("#delay").val( ( (delay-min_delay)/(max_delay-min_delay) ) );
 
     $("#editor").bind('input propertychange', function() {
 
@@ -131,6 +134,24 @@ $(document).ready(function ()
         delay = min_delay + ($(this).val()/100.0)*(max_delay-min_delay);
         pointer_delay = pointer_min_delay + ($(this).val()/100.0)*(pointer_max_delay-pointer_min_delay);
         $("#pointer").css( "transition", "all "+pointer_delay+"s" ); 
+    });
+
+    $("#copy-console").click(function(){
+
+        var text = $("#console").html(), temp, raw_text="";
+        text = text.split( "</span>" );
+        
+
+        for( var i=0; i<text.length; i++ )
+        {
+            temp = text[i];
+            temp = temp.split("<span");
+
+            raw_text += temp[0];
+        }
+
+        console.log( text+" <-> "+raw_text );
+        copyToClipboard(raw_text);
     });
 
     renderCells();
@@ -277,20 +298,37 @@ function display( index )
 
 function toggleInput( )
 {
-    if( input_div == true )
+    if( input_div == false )
     {
-        $("#input-div").css( "bottom", "-100px" );
+        show_input();
     }
     else
-        $("#input-div").css( "bottom", "10px" );
-    
-    input_div = !input_div;
+    {
+        hide_input();
+    }
+}
+
+function hide_input()
+{
+    $("#input-div").css( "bottom", "-100px" );
+    setTimeout( function(){
+        $( "#input-div" ).css( "display", "none" );
+    }, 500 );
+
+    input_div = false;
+}
+
+function show_input()
+{
+    $( "#input-div" ).css( "display", "block" );
+    $("#input-div").css( "bottom", "10px" );
+
+    input_div = true;
 }
 
 function read( index )
 {
-    $("#input-div").css( "bottom", "10px" );
-    input_div = true;
+    show_input();
 }
 
 function fetchInput()
@@ -299,8 +337,7 @@ function fetchInput()
 
     if( value != NaN && value>=0 && value<256 )
     {
-        $("#input-div").css( "bottom", "-100px" );
-        input_div = false;
+        hide_input();
 
         cells[pointer] = value;
         $( "#cell-"+pointer ).html( value );
@@ -329,13 +366,19 @@ function alert_error()
 {
     var msg = error["msg"][0];
 
-    reset();
+    //reset();
     console.log(msg);
     $( "#error-msg" ).html( msg );
     $( "#error-div" ).css( "top", "10px" );
+    setTimeout( function(){
+        $( "#error-div" ).css( "display", "inline-block" );
+    },100 );
 }
 
 function hide_error()
 {
     $( "#error-div" ).css( "top", "-100px" );
+    setTimeout( function(){
+        $( "#error-div" ).css( "display", "none" );
+    }, 500 );
 }
