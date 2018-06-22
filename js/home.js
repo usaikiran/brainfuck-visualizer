@@ -134,6 +134,8 @@ $(document).ready(function ()
         delay = min_delay + ($(this).val()/100.0)*(max_delay-min_delay);
         pointer_delay = pointer_min_delay + ($(this).val()/100.0)*(pointer_max_delay-pointer_min_delay);
         $("#pointer").css( "transition", "all "+pointer_delay+"s" ); 
+
+        console.log( "delay : "+delay );
     });
 
     $("#copy-console").click(function(){
