@@ -29,7 +29,12 @@ The language's name is a reference to the slang term brainfuck, which refers to 
 
 An Interpreter for BrainFuck is developed using web development tools ```HTML``` + ```CSS``` + ```JS``` .
 
+#### ``` Contains 3000 Cells ```
 ![brainfuck.xyz](screenshots/page_0.png)
+
+#### ``` Console supporting all ascii characters ```
 ![brainfuck.xyz#console](screenshots/page_1.png)
+
+#### ``` Sample codes provided ```
 ![brainfuck.xyz#samples-div](screenshots/page_2.png)
 
