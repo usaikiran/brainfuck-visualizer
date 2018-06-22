@@ -1,7 +1,7 @@
 # BrainFuck-Interpreter
 
 An Online Interpreter of esoteric programming language BrainFuck.  
-###http://brainfuck.xyz
+### http://brainfuck.xyz
 
 ## About BrainFuck
 
@@ -13,24 +13,20 @@ The language's name is a reference to the slang term brainfuck, which refers to 
 
 ### Symbols
 
-#### + ```Increment current cell with 1 bit```
-#### - ```Decrement current cell with 1 bit```
-#### > ```Moves current pointer towards right```
-#### < ```Moves current pointer towards left```
-#### , ```Reads Input to the current cell```
-#### . ```Outputs Ascii char equvivalent for current cell value```
-#### [ ```Moves pointer forward to the next command if current cell is not zero else jumps to the command after the matching ].```
-#### [ ```Moves pointer backward to the matching [ if current cell is not zero else jumps to the next command.```
+#### ``` + ```  Increment current cell with 1 bit
+#### ```- ```  Decrement current cell with 1 bit
+#### ```> ```  Moves current pointer towards right
+#### ```< ```  Moves current pointer towards left
+#### ```, ```  Reads Input to the current cell
+#### ```. ```  Outputs Ascii char equvivalent for current cell value
+#### ```[ ```  Moves pointer forward to the next command if current cell is not zero else jumps to the command after the matching ].
+#### ```[ ```  Moves pointer backward to the matching [ if current cell is not zero else jumps to the next command.
 
 ## Interpreter
 
-An Interpreter for BrainFuck is developed using web development tools HTML+CSS+JS.
+An Interpreter for BrainFuck is developed using web development tools ```HTML``` + ```CSS``` + ```JS``` .
 
 ![brainfuck.xyz](https://github.com/botsk/BrainFuck-Interpreter/tree/master/screenshots/page_0.png)
 ![brainfuck.xyz#console](https://github.com/botsk/BrainFuck-Interpreter/tree/master/screenshots/page_1.png)
 ![brainfuck.xyz#samples-div](https://github.com/botsk/BrainFuck-Interpreter/tree/master/screenshots/page_2.png)
-
-## Author
-
-* **Sai Kiran** - [botsk](https://github.com/botsk)
 
