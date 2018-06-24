@@ -16,16 +16,15 @@ function setEditorLines(count)
 
 $(document).ready(function () 
 {
-    setEditorLines(20);
+    setEditorLines(30);
     renderCells();
     initSamples();
+
+    editCode( "code-hello_world" );
 
     $('[data-toggle="tooltip"]').tooltip({
         trigger : 'hover'
     })  
-
-    $("#editor").scrollTop(0);
-    rowCount = parseInt( $("#editor").attr("rows") );
 
     //console.log( "delay : "+Math.floor( ( (delay-min_delay)/(max_delay-min_delay) )*100 ) );
     //$("#delay").val( ( (delay-min_delay)/(max_delay-min_delay) ) );
@@ -34,18 +33,20 @@ $(document).ready(function ()
         $(this).tooltip('hide');
     });
 
-    $("#editor").bind('input propertychange', function() {
+    $("#editor").bind('input propertychange cut paste', function() {
 
         var text = $("#editor").val();
         var lines = text.split(/\r|\r\n|\n/);
         var count = lines.length;
 
         setEditorLines( Math.max( rowCount, count ) );
+        //rich_editor();
     });
 
     $("#editor").scroll(function()
     {
         $("#editor_line").scrollTop($("#editor").scrollTop());
+        $("#pseudo-editor").scrollTop($("#editor").scrollTop());
     });
 
     $("#play").click(function(){

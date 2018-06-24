@@ -39,6 +39,12 @@
     color: #ff220c;
 }
 
+.comment
+{
+    color: #C9C9C9;
+    font-style: italic;
+}
+
 .operator
 {
     position: relative;
@@ -47,3 +53,37 @@
     font-weight: bold;
     font-size: 120%;
 }
+
+.select
+{
+    color: #fff !important;
+    background-color: #333 !important;
+}
+
+.cursor
+{
+    position: relative;
+    display: inline-block;
+
+    width: 2px;
+    height: 18px;
+    top: 3px; 
+    margin-left: 1px;
+    margin-right: 0px;
+    background-color: #047740;
+
+    animation: blink-animation 0.7s steps(5, start) infinite;
+    -webkit-animation: blink-animation 0.7s steps(5, start) infinite;
+  }
+@keyframes blink-animation 
+{
+    to {
+      visibility: hidden;
+    }
+  }
+@-webkit-keyframes blink-animation 
+{
+    to {
+      visibility: hidden;
+    }
+  }

@@ -207,7 +207,7 @@ function parse()
             return;
     }
 
-    //$("#editor").selectRange( text_count-1, text_count );
+    $("#editor").selectRange( text_count-1, text_count );
 
     if (text[row].charAt(col) == "[")    
     {

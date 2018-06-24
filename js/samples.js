@@ -118,6 +118,7 @@ function loadEditor( text )
       });
 
     $( "#editor" ).val( text );
+    rich_editor();
     window.scrollTo(0,0);
 }
 

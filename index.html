@@ -25,6 +25,7 @@
     <script src="js/symbols.js"></script>
     <script src="js/copy.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/editor.js"></script>
     <script src="js/backend.js"></script>
     <script src="js/samples.js"></script>
     <script src="js/code.js"></script>
@@ -59,8 +60,12 @@
     <br/>
 
     <div class="editor-div col-sm-7 centre ">
-        <textarea id="editor_line" class="editor-line select-none" rows="15" unselectable="on" readonly ng-bind="editor_line_bar"></textarea>
-        <textarea id="editor" class="editor" rows="15" ng-model="editor_box" name="editor_box"></textarea>
+        <textarea id="editor_line" class="editor-line select-none" rows="20" unselectable="on" readonly ng-bind="editor_line_bar"></textarea>
+        
+        <div class="rich-editor">
+            <textarea id="editor" spellcheck="false" class="editor" rows="20" ng-model="editor_box" name="editor_box"></textarea>
+            <pre id="pseudo-editor" class="pseudo-editor"></pre>
+        </div>
         <div class="control-icon-div">
             <button id="play" class="btn control-icon" data-toggle="tooltip" title="Play"><i class="material-icons" id="play-stamp">change_history</i></button>
             <button id="steps" class="btn control-icon" data-toggle="tooltip" title="Execute in Steps"><i class="material-icons">trending_flat</i></button>

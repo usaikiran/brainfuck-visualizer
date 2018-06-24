@@ -7,12 +7,29 @@ var names = {
     ",":"input", 
     ".":"output", 
     ">":"right", 
-    "<":"left" 
+    "<":"left",
+    "o":"comment"
 };
 
-function span( operator )
+function span( operator, select )
 {
-    return "<span class='operator "+names[operator]+"'>"+operator+"</span>";
+    var span_html = "", ext_class="";
+
+    if( isNaN( select ) )
+        select = false;
+    else if( select == true )
+        ext_class = "select";
+    
+    if( operator.search( /[\[\]\.\,\+\-\<\>]/ )!=-1 )
+        span_html = "<span class='operator "+names[operator]+"'>"+operator+"</span>";
+    else
+    {
+        if( operator==" " )
+            operator="&nbsp;";
+        span_html = "<span class='operator "+names['o']+" "+ext_class+" '>"+operator+"</span>";
+    }
+
+    return span_html;
 }
 
 function encode( code )
