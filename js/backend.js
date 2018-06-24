@@ -86,7 +86,7 @@ function compile( text )
             {
                 if( temp.length == 0 )
                 {                    
-                    error["msg"].push( "Opening Bracket missing for [ @ "+i+":"+j );
+                    error["msg"].push( "Misplaced closing bracket ] at "+i+":"+j );
                     error["count"] += 1;
 
                     alert_error();
@@ -104,7 +104,7 @@ function compile( text )
 
     if( temp.length != 0 )
     {                    
-        error["msg"].push( "Closing Bracket missing for [ @ "+temp[0][0]+":"+temp[0][1] );
+        error["msg"].push( "Misplaced open bracket ] at "+temp[0][0]+":"+temp[0][1] );
         error["count"] += 1;
 
         alert_error();

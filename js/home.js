@@ -1,6 +1,4 @@
 
-var app = angular.module('brainApp', []);
-
 var rowCount = 20;
 var play = false;
 var step = false;
@@ -8,11 +6,6 @@ var input_div = false;
 var output = false;
 
 var cell_left_offset = 0;
-
-app.controller('brainCtrl', function ($scope) 
-{
-    setEditorLines(20);
-});
 
 function setEditorLines(count) 
 {
@@ -23,6 +16,7 @@ function setEditorLines(count)
 
 $(document).ready(function () 
 {
+    setEditorLines(20);
     renderCells();
     initSamples();
 
@@ -96,8 +90,9 @@ $(document).ready(function ()
         console.log("output terminated");
     });
 
-    $("#input-div").submit(function()
+    $("#input-div").submit(function(e)
     {
+        e.preventDefault();
         fetchInput();
     });
 
@@ -378,7 +373,7 @@ function alert_error()
     //reset();
     console.log(msg);
     $( "#error-msg" ).html( msg );
-    $( "#error-div" ).css( "top", "10px" );
+    $( "#error-div" ).css( "top", "60px" );
     setTimeout( function(){
         $( "#error-div" ).css( "display", "inline-block" );
     },100 );

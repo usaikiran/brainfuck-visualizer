@@ -111,6 +111,12 @@ function decode( code )
 
 function loadEditor( text )
 {
+    $('html, body').animate({
+        scrollTop: $("#header-div").offset().top-40
+      }, 800, function(){
+   
+      });
+
     $( "#editor" ).val( text );
     window.scrollTo(0,0);
 }
@@ -118,12 +124,7 @@ function loadEditor( text )
 function downloadCode( id )
 {
     var name = id.split("-")[1]+".b";
-
-    $('html, body').animate({
-        scrollTop: $("#editor").offset().top
-      }, 800, function(){
-   
-      });
+    window.location.href = "data/"+name;
 }
 
 function copyCode( id )

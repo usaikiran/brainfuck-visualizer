@@ -9,4 +9,4 @@ Displays fibonacci series
     ]<<<
 ]
 
-This program doesn't terminate; you will have to k
+This program doesn't terminate; you will have to kill

@@ -409,7 +409,8 @@ button:focus
     display: block;
 
     border: 0px;
-    font-family: "fax-sans";
+    font-family: "arvin regular";
+    font-size: 110%;
     letter-spacing: 0.05em;
     background-color: #ed1c24;
     color: #fff;
