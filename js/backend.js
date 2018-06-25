@@ -53,7 +53,7 @@ function soft_reset()
 {
     input_div = false;
     move(0);
-    $( "#console" ).val("");
+    $( "#console" ).html("");
     current_col = -1;
     text_count = -1;
     
@@ -148,6 +148,8 @@ function playCode( code )
     if( compile( text ) == false )
         return;
 
+    if( text_count==-1 )
+        soft_reset();
     iterate();
 }
 
@@ -166,7 +168,7 @@ function increment()
     text_count++;
     if( text_count>text.length )
     {
-        soft_reset();
+        //soft_reset();
         if( play == true )
         {
             console.log( "finished @ "+text_count+" "+text.length );
