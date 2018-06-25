@@ -40,14 +40,17 @@ $(document).ready(function ()
         var count = lines.length;
 
         setEditorLines( Math.max( rowCount, count ) );
-        //rich_editor();
+        rich_editor();
     });
 
     $("#editor").scroll(function()
     {
         $("#editor_line").scrollTop($("#editor").scrollTop());
         $("#pseudo-editor").scrollTop($("#editor").scrollTop());
-    });
+        $("#pseudo-editor").scrollLeft($("#editor").scrollLeft());
+
+        console.log( "editor scrolled" );
+    }).scrollTop($("#editor")[0].scrollHeight);;
 
     $("#play").click(function(){
 

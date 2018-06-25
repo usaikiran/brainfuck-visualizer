@@ -56,8 +56,15 @@
 
 .select
 {
-    color: #fff !important;
-    background-color: #333 !important;
+    background-color: #eee !important;
+}
+
+.play-select
+{
+    color: #fff;
+    background-color: #222 !important;
+
+    border-radius: 2px;
 }
 
 .cursor
@@ -86,4 +93,24 @@
     to {
       visibility: hidden;
     }
-  }
+}
+
+.editor::-webkit-scrollbar 
+{
+    width: 5px;
+    height: 5px;
+}
+    
+    
+.editor::-webkit-scrollbar-track-piece  
+{
+    background-color: transparent;
+}
+    
+.editor::-webkit-scrollbar-thumb:vertical 
+{
+    height: 30px;
+    background-color: #ddd;
+
+    border-radius: 6px;
+}

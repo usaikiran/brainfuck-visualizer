@@ -14,13 +14,13 @@ $(document).ready(function ()
 
 });
 
-function editor_span( operator, select )
+function editor_span( operator, select, play )
 {
     var span_html = "", ext_class="";
 
-    if( isNaN( select ) )
-        select = false;
-    else if( select == true )
+    if( play == true )
+        ext_class = "play-select";
+    if( select == true )
         ext_class = "select";
     
     if( operator.search( /[\[\]\.\,\+\-\<\>]/ )!=-1 )
@@ -35,8 +35,11 @@ function editor_span( operator, select )
     return span_html;
 }
 
-function rich_editor()
+function rich_editor( play )
 {
+    if( isNaN(play) )
+        play = false;
+
     var text = $("#editor").val(), span_text="", encoded="";
     var cursor = getCursorPos();
     var cur_pos = cursor.end, i=0;
@@ -47,16 +50,19 @@ function rich_editor()
 
     for( i=0; i<text.length; i++ )
     {        
-        if( i == cur_pos )
+        if( i == cur_pos && play==false )
             encoded += "<span class='cursor'></span>";
 
         /*if( text.charAt(i) == "\n" )
             encoded += "<br/>";*/
         
-        if( selection==true && i>=cursor.start && i<cursor.end )
+        if( selection==true && i>=cursor.start && i<cursor.end && play==false )
             bool = true;
-
-        encoded += editor_span( text.charAt(i), bool );
+        
+        if( selection==true && i>=cursor.start && i<cursor.end && play==true )
+            encoded += editor_span( text.charAt(i), bool, true );
+        else
+            encoded += editor_span( text.charAt(i), bool, false );
         bool = false;
     }
 

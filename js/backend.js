@@ -6,7 +6,7 @@ var cellSize = 1000;
 var row=0;
 var col=0;
 var text = "";
-var text_count = 0;
+var text_count = -1;
 
 var delay = 400, max_delay=1500, min_delay=10;
 var pointer_delay = 0.2, pointer_max_delay=0.5, pointer_min_delay=0.0;
@@ -38,15 +38,13 @@ function reset()
     error = { "msg":[], "count":0 };
     move(0);
     shift(0);
-    text_count = 0;
+    text_count = -1;
     
     hide_error();
     hide_input();
     $("#play").html( "<i class='material-icons' id='play-stamp'>change_history</i>" );
     $( "#console" ).html("");
 
-    row = 0;
-    col = -1;
     text = "";
     current_col = -1;
 }
@@ -56,10 +54,9 @@ function soft_reset()
     input_div = false;
     move(0);
     $( "#console" ).val("");
-    row = 0;
-    col = -1;
     current_col = -1;
-
+    text_count = -1;
+    
     renderCells();
     
     cells = [];
@@ -71,40 +68,37 @@ function soft_reset()
 
 function compile( text )
 {
-    var temp = [], count=0;
+    var temp = [], num_rows=0;
 
     brackets = {}
     for( var i=0; i<text.length; i++ )
     {
-        for( var j=0; j<text[i].length; j++ )
+        if( text.charAt(i) == "[" )
         {
-            if( text[i].charAt(j) == "[" )
-            {
-                temp.push( {0:i, 1:j, 2:count} );
-            }
-            if( text[i].charAt(j) == "]" )
-            {
-                if( temp.length == 0 )
-                {                    
-                    error["msg"].push( "Misplaced closing bracket ] at "+i+":"+j );
-                    error["count"] += 1;
-
-                    alert_error();
-                    return false;                    
-                }
-
-                var data = temp.pop();
-
-                brackets[data[0]+":"+data[1]] = [ i, j, count ];
-                brackets[i+":"+j] = [ data[0], data[1], data[2] ];
-            }
-            count++;
+            temp.push( i );
         }
+        if( text.charAt(i) == "]" )
+        {
+            if( temp.length == 0 )
+            {                    
+                error["msg"].push( "Misplaced closing bracket ]" );
+                error["count"] += 1;
+
+                alert_error();
+                return false;                    
+            }
+
+            var data = temp.pop();
+            brackets[data] = i;
+            brackets[i] = data;
+        }
+        if( text.charAt(i)=="\n" )
+            num_rows++;
     }
 
     if( temp.length != 0 )
     {                    
-        error["msg"].push( "Misplaced open bracket ] at "+temp[0][0]+":"+temp[0][1] );
+        error["msg"].push( "Misplaced open bracket ]" );
         error["count"] += 1;
 
         alert_error();
@@ -120,26 +114,20 @@ function get_output( code )
     if( output == false )
     {
         reset();
-        row=0;
-        col=0;
+        text_count=0;
     }
 
     output = true;
     text = code;
-    text = text.split("\n");
 
     if( compile( text ) == false )
         return;
 
-    for( ; row<text.length; row++ )
+    for( ; text_count<text.length; text_count++ )
     {
-        for( ; col<text[row].length; col++ )
-        {
-            parse();
-
-            if( text[row].charAt(col+1)==',' )
-                return;
-        }
+        parse();
+        if( text.charAt(text_count)==',' )
+            return;
     }
 
     output = false;
@@ -147,7 +135,6 @@ function get_output( code )
 
 function playCode( code )
 {
-    soft_reset();
     step =true;
     
     if( code.length == 0 )
@@ -157,7 +144,6 @@ function playCode( code )
     }
 
     text = code;
-    text = text.split("\n");
 
     if( compile( text ) == false )
         return;
@@ -177,87 +163,67 @@ function iterate()
 
 function increment()
 {
-    col++;
-    if( col>=text[row].length )
+    text_count++;
+    if( text_count>text.length )
     {
-        row++;
-        col=0;
-    }
-    if( row>=text.length )
-    {
+        soft_reset();
         if( play == true )
         {
-            row = 0;
-            col = -1;
-            //console.log( "finished @ "+row+" "+col );
+            console.log( "finished @ "+text_count+" "+text.length );
+            text_count = -1;
             $("#play").trigger( "click" );
         }
         step = false;
         return false;
     }
-    text_count++;
+    
     return true;
 }
 
 function parse() 
 {
-    for ( ; text[row].charAt(col).search( /[\[\]\<\>\+\-\,\.]/ ) == -1 ; )
+    for ( ; text.charAt(text_count).search( /[\[\]\<\>\+\-\,\.]/ ) == -1 ; )
     {
         if( increment() == false )
             return;
     }
+    var char = text.charAt(text_count);
 
-    $("#editor").selectRange( text_count-1, text_count );
+    $("#editor").selectRange( text_count, text_count+1 );
+    rich_editor( true );
 
-    if (text[row].charAt(col) == "[")    
+    if (char == "[")    
     {
         if( cells[pointer]==0 )
         {
-            temp_row = brackets[ row+":"+col ][0];
-            temp_col = brackets[ row+":"+col ][1];
-
-            row = temp_row;
-            col = temp_col;
-
-            text_count += brackets[ row+":"+col ][2];
+            text_count = brackets[ text_count ];
         }
-        //brackets.push( { "row":row, "col":col } );
     }   
 
-    if (text[row].charAt(col) == "]")
+    if (char == "]")
     {
         if(cells[pointer]!=0)
         {
-            temp_row = brackets[ row+":"+col ][0];
-            temp_col = brackets[ row+":"+col ][1];
-
-            row = temp_row;
-            col = temp_col;
-
-            text_count -= brackets[ row+":"+col ][2]+1;
-        }
-        else
-        {
-            //brackets.pop();
+            text_count = brackets[ text_count ];
         }
             
     }
-    if (text[row].charAt(col) == ">")
+    if (char == ">")
         move(pointer + 1);
     
-    if (text[row].charAt(col) == "<")
+    if (char == "<")
         move(pointer - 1);
 
-    if (text[row].charAt(col) == "+")
+    if (char == "+")
         set( pointer, +1 );
     
-    if (text[row].charAt(col) == "-")
+    if (char == "-")
         set( pointer, -1 );
 
-    if (text[row].charAt(col) == ".")
+    if (char == ".")
         display( pointer );
 
-    if (text[row].charAt(col) == ",")
+    if (char == ",")
     {
         read( pointer );
         col--;
