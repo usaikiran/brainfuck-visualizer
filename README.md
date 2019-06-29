@@ -1,7 +1,7 @@
 # BrainFuck-Visualizer
 
 An Online Interpreter of esoteric programming language BrainFuck.  
-### http://brainfuck.xyz
+### https://brainfuck-visualizer.herokuapp.com
 
 
 ## About BrainFuck
