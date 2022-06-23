@@ -328,7 +328,7 @@ function hide_input()
 
 function show_input()
 {
-    $( "#input-div" ).css( "display", "inline-block" );
+    $( "#input-div" ).css( "display", "block" );
     $("#input-div").css( "bottom", "10px" );
 
     input_div = true;
