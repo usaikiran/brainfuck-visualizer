@@ -1,7 +1,7 @@
 # BrainFuck-Visualizer
 
 An Online Interpreter of esoteric programming language BrainFuck.  
-### [https://brainfuck-visualizer.herokuapp.com](https://sparkly-cobbler-ab243d.netlify.app/)
+### [https://brainfuck-visualizer.xyz/](https://brainfuck-visualizer.xyz/)
 
 
 ## About BrainFuck
